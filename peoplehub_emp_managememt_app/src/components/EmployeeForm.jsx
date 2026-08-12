@@ -28,8 +28,8 @@ export default function EmployeeForm({ employee, onSubmit, onClose }) {
     const nextErrors = {};
     if (!form.name.trim()) nextErrors.name = "Name is required";
     if (!form.email.trim()) nextErrors.email = "Email is required";
-    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(form.email)) {
-      nextErrors.email = "Enter a valid email";
+    if (!/^[^\s@]+@peoplehub\.com$/.test(form.email)) {
+      nextErrors.email = "Enter a valid PeopleHub email";
     }
     if (!form.role.trim()) nextErrors.role = "Role is required";
     if (!form.joinDate) nextErrors.joinDate = "Join date is required";
@@ -41,6 +41,15 @@ export default function EmployeeForm({ employee, onSubmit, onClose }) {
     event.preventDefault();
     if (validate()) onSubmit(form);
   }
+  const getToday = () => {
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
 
   return (
     <div className="modal-backdrop" onMouseDown={onClose}>
@@ -103,7 +112,7 @@ export default function EmployeeForm({ employee, onSubmit, onClose }) {
 
             <label>
               Joining date
-              <input name="joinDate" type="date" value={form.joinDate} onChange={handleChange} />
+              <input name="joinDate" type="date" value={form.joinDate} onChange={handleChange}  max={getToday()}/>
               {errors.joinDate && <small className="error">{errors.joinDate}</small>}
             </label>
           </div>
