@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-task-50: #ecfeff;
+  --color-task-500: #0891b2;
+  --color-task-600: #0e7490;
+  --color-task-700: #155e75;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button, input, select, textarea { font: inherit; }
