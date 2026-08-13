@@ -4,6 +4,7 @@ import StatCard from "./components/StatCard";
 import SearchBar from "./components/SearchBar";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeForm from "./components/EmployeeForm";
+import EmployeeProfile from "./components/EmployeeProfile";
 import { initialEmployees } from "./data/employees";
 import { loadEmployees, saveEmployees } from "./utils/storage";
 
@@ -14,6 +15,7 @@ export default function App() {
   const [status, setStatus] = useState("All");
   const [modalOpen, setModalOpen] = useState(false);
   const [editingEmployee, setEditingEmployee] = useState(null);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   useEffect(() => {
     saveEmployees(employees);
@@ -140,7 +142,23 @@ export default function App() {
             employees={filteredEmployees}
             onEdit={openEditModal}
             onDelete={handleDelete}
+            onView={setSelectedEmployee}
           />
+
+        {selectedEmployee && (
+        <EmployeeProfile
+          employee={selectedEmployee}
+          onClose={() => setSelectedEmployee(null)}
+          onEdit={(employee) => {
+            setSelectedEmployee(null);
+            handleEdit(employee);
+          }}
+          onDelete={(id) => {
+            setSelectedEmployee(null);
+            handleDelete(id);
+          }}
+        />
+      )}
         </section>
       </main>
 

@@ -7,14 +7,20 @@ function initials(name) {
     .toUpperCase();
 }
 
-export default function EmployeeRow({ employee, onEdit, onDelete }) {
+export default function EmployeeRow({ employee, onEdit, onDelete , onView }) {
   return (
     <tr>
       <td>
         <div className="employee-cell">
           <div className="avatar">{initials(employee.name)}</div>
           <div>
-            <strong>{employee.name}</strong>
+            <strong><button
+                  className="employee-name-button"
+                  onClick={() => onView(employee)}
+                  >
+                  {employee.name}
+                  </button>
+            </strong>
             <span>{employee.role}</span>
           </div>
         </div>
