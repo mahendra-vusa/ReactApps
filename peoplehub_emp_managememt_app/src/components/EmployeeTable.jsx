@@ -1,6 +1,6 @@
 import EmployeeRow from "./EmployeeRow";
 
-export default function EmployeeTable({ employees, onEdit, onDelete }) {
+export default function EmployeeTable({ employees, onEdit, onDelete, onView }) {
   if (!employees.length) {
     return (
       <div className="empty-state">
@@ -31,6 +31,7 @@ export default function EmployeeTable({ employees, onEdit, onDelete }) {
               employee={employee}
               onEdit={onEdit}
               onDelete={onDelete}
+              onView={onView}
             />
           ))}
         </tbody>
