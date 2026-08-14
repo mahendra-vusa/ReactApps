@@ -29,12 +29,40 @@ export default function TaskForm({ task, onSave, onClose }) {
         <form onSubmit={submit} className="space-y-5 p-6">
           {error && <p className="rounded-xl bg-red-50 p-3 text-sm font-bold text-red-700">{error}</p>}
           <div className="grid gap-4 sm:grid-cols-2">
-            <label className="sm:col-span-2"><span className="mb-1.5 block text-sm font-bold">Task title</span><input name="title" value={form.title} onChange={change} placeholder="e.g. Prepare launch checklist" className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50" /></label>
-            <label><span className="mb-1.5 block text-sm font-bold">Project</span><select name="project" value={form.project} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3">{["Website Refresh","Growth","People Ops","Mobile App","Internal"].map((x) => <option key={x}>{x}</option>)}</select></label>
-            <label><span className="mb-1.5 block text-sm font-bold">Assignee</span><input name="assignee" value={form.assignee} onChange={change} placeholder="Team member" className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50" /></label>
-            <label><span className="mb-1.5 block text-sm font-bold">Priority</span><select name="priority" value={form.priority} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3"><option>High</option><option>Medium</option><option>Low</option></select></label>
-            <label><span className="mb-1.5 block text-sm font-bold">Status</span><select name="status" value={form.status} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3"><option>Todo</option><option>In Progress</option><option>Done</option></select></label>
-            <label><span className="mb-1.5 block text-sm font-bold">Due date</span><input name="dueDate" type="date" value={form.dueDate} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3" /></label>
+            <label className="sm:col-span-2">
+              <span className="mb-1.5 block text-sm font-bold">Task title</span>
+            <input name="title" value={form.title} onChange={change} placeholder="e.g. Prepare launch checklist" className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50" />
+            </label>
+            <label>
+              <span className="mb-1.5 block text-sm font-bold">Project</span>
+              <select name="project" value={form.project} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3">
+                {["Website Refresh","Growth","People Ops","Mobile App","Internal"].map((x) => <option key={x}>{x}</option>)}
+              </select>
+            </label>
+            <label>
+              <span className="mb-1.5 block text-sm font-bold">Assignee</span>
+              <input name="assignee" value={form.assignee} onChange={change} placeholder="Team member" className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50" />
+            </label>
+            <label>
+              <span className="mb-1.5 block text-sm font-bold">Priority</span>
+              <select name="priority" value={form.priority} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </label>
+            <label>
+              <span className="mb-1.5 block text-sm font-bold">Status</span>
+              <select name="status" value={form.status} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3">
+                <option>Todo</option>
+                <option>In Progress</option>
+                <option>Done</option>
+              </select>
+            </label>
+            <label>
+              <span className="mb-1.5 block text-sm font-bold">Due date</span>
+              <input name="dueDate" type="date" value={form.dueDate} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3" />
+            </label>
           </div>
           <div className="flex justify-end gap-3 border-t border-slate-100 pt-5"><button type="button" onClick={onClose} className="rounded-xl bg-slate-100 px-5 py-3 font-black">Cancel</button><button className="rounded-xl bg-cyan-600 px-5 py-3 font-black text-white hover:bg-cyan-700">{task ? "Save changes" : "Create task"}</button></div>
         </form>
