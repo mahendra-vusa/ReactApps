@@ -48,7 +48,7 @@ export default function App() {
         <Box sx={{ mb: 4 }}><Typography color="success.main" fontWeight={900}>Money overview</Typography><Typography variant="h3" fontWeight={900} sx={{ mt: .5, fontSize: { xs: "2rem", md: "2.7rem" } }}>Know where it goes.</Typography><Typography color="text.secondary" sx={{ mt: 1, maxWidth: 700 }}>Track everyday expenses, payment methods and spending categories in one clean workspace.</Typography></Box>
         <Grid container spacing={2} sx={{ mb: 4 }}>
           <Grid size={{ xs: 12, sm: 6, lg: 3 }}><StatCard label="Total spend" value={`$${total.toFixed(2)}`} detail="All recorded expenses" icon="$" /></Grid>
-          <Grid size={{ xs: 12, sm: 6, lg: 3 }}><StatCard label="Transactions" value={transactions.length} detail="Recorded expenses" icon="↕" /></Grid>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}><StatCard label="Transactionss" value={transactions.length} detail="Recorded expenses" icon="↕" /></Grid>
           <Grid size={{ xs: 12, sm: 6, lg: 3 }}><StatCard label="Average" value={`$${average.toFixed(2)}`} detail="Per transaction" icon="≈" /></Grid>
           <Grid size={{ xs: 12, sm: 6, lg: 3 }}><StatCard label="Visible" value={filtered.length} detail="Matching your filters" icon="⌕" /></Grid>
         </Grid>
