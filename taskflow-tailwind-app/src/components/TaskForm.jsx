@@ -64,7 +64,10 @@ export default function TaskForm({ task, onSave, onClose }) {
               <input name="dueDate" type="date" value={form.dueDate} onChange={change} className="w-full rounded-xl border border-slate-200 px-4 py-3" />
             </label>
           </div>
-          <div className="flex justify-end gap-3 border-t border-slate-100 pt-5"><button type="button" onClick={onClose} className="rounded-xl bg-slate-100 px-5 py-3 font-black">Cancel</button><button className="rounded-xl bg-cyan-600 px-5 py-3 font-black text-white hover:bg-cyan-700">{task ? "Save changes" : "Create task"}</button></div>
+          <div className="flex justify-end gap-3 border-t border-slate-100 pt-5">
+            <button type="button" onClick={onClose} className="rounded-xl bg-slate-100 px-5 py-3 font-black">Cancel</button>
+            <button className="rounded-xl bg-cyan-600 px-5 py-3 font-black text-white hover:bg-cyan-700">{task ? "Save changes" : "Create task"}</button>
+          </div>
         </form>
       </section>
     </div>
